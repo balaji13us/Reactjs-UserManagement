@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import CONSTANT from '../../constants/env' 
 class ShowUsers extends Component {
 
 
@@ -12,7 +13,7 @@ class ShowUsers extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://my-json-server.typicode.com/balaji13us/MOCK-JSON-REPO/users')
+    axios.get(CONSTANT.LOCAL_JSON_SERVER_USER)
       .then(res => {
         this.setState({ users: res.data });
         console.log(this.state.users);
@@ -22,6 +23,10 @@ class ShowUsers extends Component {
   render() {
     return (
       <div >
+         <h1>Users Page</h1>
+         <div align="right">
+         <Link to="/userAdd">  <button type="button" className="btn btn-primary">Add</button></Link>
+         </div>
         <table  className="table table-striped" >
         <thead>
           <tr>
@@ -45,7 +50,7 @@ class ShowUsers extends Component {
           }
         </tbody>
         </table>
-        <button type="button" class="btn btn-primary">Primary</button>
+        
       </div>
     );
   }

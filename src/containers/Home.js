@@ -8,15 +8,15 @@ class Home extends Component {
   render() {
     return (
       <div >
-        <div class="container">
-          <div class="row">
-            <div class="col-12"><Header /></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-12"><Header /></div>
           </div>
-          <div class="row">
-          <div class="col-2"><Navigation /></div>
+          <div className="row">
+          <div className="col-2"><Navigation /></div>
 
-            <div class="col-10">
-              <div class="jumbotron">
+            <div className="col-10">
+              <div className="jumbotron">
                 <Route path="/" exact render={() => <h1>This is Home page</h1> } />
                 <Route path="/user*"  component={Users} />
                 

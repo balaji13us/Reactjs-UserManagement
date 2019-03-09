@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CONSTANT from '../../constants/env' 
+
 class ShowUsers extends Component {
 
 
@@ -23,7 +24,7 @@ class ShowUsers extends Component {
   render() {
     return (
       <div >
-         <h1>Users Page</h1>
+         <h3>Users Page</h3>
          <div align="right">
          <Link to="/userAdd">  <button type="button" className="btn btn-primary">Add</button></Link>
          </div>

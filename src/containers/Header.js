@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+
+
 class Header extends Component {
   render() {
     return (
       <div >
-        <nav className="navbar navbar-inverse">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <Link className="navbar-brand" to="/">User Management</Link>
-            </div>
-            <ul className="nav navbar-nav">
-              <li className="active"><Link to="/">Home</Link></li>
-              <li><Link to="/users">Users</Link></li>
-
-            </ul>
-          </div>
-        </nav>
+        <Navbar bg="primary" variant="dark">
+          <Navbar.Brand href="#home">User Management</Navbar.Brand>
+          <Nav className="mr-auto">
+          <Link to="/">
+            <Nav.Link href="#home">Home</Nav.Link>
+            </Link>
+            <Link to="/users">
+              <Nav.Link href="#users">Users</Nav.Link>
+            </Link>
+          </Nav>
+        </Navbar>
       </div>
     );
   }

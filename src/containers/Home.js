@@ -4,29 +4,28 @@ import Users from '../components/User/Users';
 import Header from '../containers/Header';
 import Navigation from '../containers/Navigation';
 import { Route } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button'
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import MainPanel from './MainPanel';
+
 class Home extends Component {
   render() {
     return (
       <div >
-        <div className="container">
-          <div className="row">
-            <div className="col-12"><Header /></div>
-          </div>
-          <div className="row">
-          <div className="col-2"><Navigation /></div>
-
-            <div className="col-10">
-              <div className="jumbotron">
-                <Route path="/" exact render={() => <h1>This is Home page</h1> } />
-                <Route path="/user*"  component={Users} />
-                
-              </div>
-            </div>
-          </div>
-
+        <Container>
+          <Row>
+            <Col>
+              <Header></Header>
+            </Col>
+          </Row>
+          <Row>
+            <Col><MainPanel></MainPanel></Col>
+          </Row>
+        </Container>
         </div>
-
-      </div>
     );
   }
 }

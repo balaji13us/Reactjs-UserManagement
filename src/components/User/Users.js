@@ -12,7 +12,7 @@ class Users extends Component {
     return (
       <div >
         <Switch>
-        <Route path="/userAdd" exact component={EditOneUser} testprop="fsdf" />
+        <Route path="/userAdd" exact component={EditOneUser}  />
         <Route path="/userEdit/:id" exact component={EditOneUser} />
 
         <Route path="/users" exact component={ShowUsers} />

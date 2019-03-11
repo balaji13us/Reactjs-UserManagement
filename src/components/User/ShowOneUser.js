@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import CONSTANT from '../../constants/env'
+import CONSTANT from '../../constants/apiDetails'
 import UIResponse from '../../components/generic/UIResponse'
 
 class ShowOneUser extends Component {
@@ -10,7 +10,15 @@ class ShowOneUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: []
+      user: [],
+      result: {
+        showResult:false
+        , action: "USER DISPLAY"
+        , code: ""
+        , message: ""
+        , status: ""
+        , statusText: ""
+      }
     };
   }
 
@@ -20,8 +28,9 @@ class ShowOneUser extends Component {
       .then(res => {
         this.setState({ user: res.data });
         console.log(res);
-        this.updateResponse(res);
-        this.props.history.replace('/users/');
+        var action = 'DELETE USER';
+        this.updateResponse(res, action);
+        //this.props.history.replace('/users/');
       }).catch(err => {
         console.log(err);
         this.updateResponse(err);
@@ -42,7 +51,7 @@ class ShowOneUser extends Component {
 
   }
 
-  updateResponse = (response) => {
+  updateResponse = (response, action) => {
     var code, message;
     switch (response.status) {
       case 200:
@@ -61,10 +70,12 @@ class ShowOneUser extends Component {
 
     this.setState({
       result: {
-        code: code
+        showResult:true
+        , action: action
+        , code: code
         , message: message
         , status: response.status
-        , statusMessage: response.statusMessage
+        , statusText: response.statusText
       }
     });
   }

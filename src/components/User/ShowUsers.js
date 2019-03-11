@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import CONSTANT from '../../constants/env' 
+import CONSTANT from '../../constants/apiDetails' 
 
 class ShowUsers extends Component {
 
@@ -13,12 +13,14 @@ class ShowUsers extends Component {
     };
   }
 
+ 
   componentDidMount() {
     axios.get(CONSTANT.LOCAL_JSON_SERVER_USER)
       .then(res => {
         this.setState({ users: res.data });
         console.log(this.state.users);
       });
+    
   }
 
   render() {

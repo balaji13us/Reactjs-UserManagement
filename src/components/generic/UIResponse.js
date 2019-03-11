@@ -2,29 +2,37 @@ import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 const UIResponse = (props) => {
 
-    if (props.result!=null && props.result.code !=null && props.result.code!=="") {
+    let result = '';
+    console.log(props);
+
+
+    if (props.result.showResult ) {
+
         if (props.result.code === 'Success') {
+            result = 'Success';
             return (
                 <div>
-                    <Alert dismissible variant="success">
-                    <Alert.Heading>Success</Alert.Heading>
-                    Status Code: {props.result.status}<br/>
-                    Status Message: {props.result.statusMessage}
-                    </Alert>
-                </div>
+                <Alert dismissible variant='success'>
+                    <Alert.Heading>{props.result.action} {result}</Alert.Heading>
+                    Status Code: {props.result.status}<br />
+                    Status Text: {props.result.statusText}
+                </Alert>
+            </div>
             );
         } else {
+            result = 'Failed';
             return (
                 <div>
-                    <Alert dismissible variant="danger">
-                    <Alert.Heading>Error</Alert.Heading>
-                    Status Code: {props.result.status}<br/>
-                    Status Message: {props.result.statusMessage}
-                    </Alert>
-                </div>
+                <Alert dismissible variant='danger'>
+                    <Alert.Heading>{props.result.action} {result}</Alert.Heading>
+                    Status Code: {props.result.status}<br />
+                    Status Text: {props.result.statusText}
+                </Alert>
+            </div>
             );
         }
-    } else{
+    } else {
+
         return null;
     }
 }
